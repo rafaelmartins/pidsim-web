@@ -20,6 +20,7 @@ from models import models
 
 # stdlib imports
 import json
+import os
 import re
 import sys
 import StringIO
@@ -83,7 +84,8 @@ class Application(object):
             return ChienHronesReswick20
 
     def act_index(self, req, vars):
-        with open('html/index.html') as fp:
+        mydir = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(mydir, 'html/index.html')) as fp:
             html = fp.read()
         return Response(html)
 
