@@ -9,16 +9,16 @@
         var model = null;
         var blacklist = [4, 8, 9, 14];
         function select_model(my_model) {
-            model = my_model;
             var temp = true;
             // Block models not implemented yet
             for(i in blacklist){
-                if(model == blacklist[i]){
-                    window.alert("Model not implemented yet!");
+                if(my_model == blacklist[i]){
+                    window.alert("Processo não implementado!");
                     temp = false;
                 }
             }
             if(temp){
+                model = my_model;
                 $("#graph").html('');
                 $.getJSON('model/' + model, function(data) {
                     $('#model_id').html(data.model['id']);
@@ -27,7 +27,7 @@
                         $('#additional_form').html(data.model['form']);
                     }
                     else{
-                        $('#additional_form').html("No parameters.");
+                        $('#additional_form').html("Sem parametros.");
                     }
                     $('#selected_model').show();
                 });
@@ -44,8 +44,8 @@
                     // Validation to save resources :P
                     if(($("#total").val() / $("#sample").val()) > 5000){
                         window.alert(
-                            "Error: \n\nYour graph will have more than 5000 points.\n" + 
-                            "Please decrease the Total Time or increase the Sample Time."
+                            "Erro: \n\nSeu gráfico teria mais de 5000 pontos.\n" + 
+                            "Por favor, diminua o Tempo Total ou aumente o Tempo de Amostragem."
                         );
                         return false;
                     }
@@ -58,7 +58,7 @@
                 showErrors: function(errorMap, errorList) {
                     if(errorList.length > 0) {
                         // Dammit
-                        var aux = "Errors:\n\n";
+                        var aux = "Erros:\n\n";
                         for(key in errorMap) {
                             aux += key + ": " + errorMap[key] + "\n";
                         }
@@ -115,7 +115,7 @@
                 padding: 0;
             }
             #plot_button{
-                width: 50px;
+                width: 70px;
                 text-align: center !important;
                 float: none !important;
             }
@@ -125,30 +125,30 @@
         </style>
     </head>
     <body>
-        <h1>PID Controller's Simulator</h1>
+        <h1>Simulador de Controladores PID</h1>
         <table id="models">
             <tr>
-                <th colspan="5">Select a model to simulate:</th>
+                <th colspan="5">Escolha um processo para simular:</th>
             </tr>
             <tr>
-                <td><a href="javascript:select_model(1)">Model 1</a></td>
-                <td><a href="javascript:select_model(2)">Model 2</a></td>
-                <td><a href="javascript:select_model(3)">Model 3</a></td>
-                <td><a href="javascript:select_model(4)">Model 4</a></td>
-                <td><a href="javascript:select_model(5)">Model 5</a></td>
+                <td><a href="javascript:select_model(1)">Processo 1</a></td>
+                <td><a href="javascript:select_model(2)">Processo 2</a></td>
+                <td><a href="javascript:select_model(3)">Processo 3</a></td>
+                <td><a href="javascript:select_model(4)">Processo 4</a></td>
+                <td><a href="javascript:select_model(5)">Processo 5</a></td>
             </tr>
             <tr>
-                <td><a href="javascript:select_model(6)">Model 6</a></td>
-                <td><a href="javascript:select_model(7)">Model 7</a></td>
-                <td><a href="javascript:select_model(8)">Model 8</a></td>
-                <td><a href="javascript:select_model(9)">Model 9</a></td>
-                <td><a href="javascript:select_model(10)">Model 10</a></td>
+                <td><a href="javascript:select_model(6)">Processo 6</a></td>
+                <td><a href="javascript:select_model(7)">Processo 7</a></td>
+                <td><a href="javascript:select_model(8)">Processo 8</a></td>
+                <td><a href="javascript:select_model(9)">Processo 9</a></td>
+                <td><a href="javascript:select_model(10)">Processo 10</a></td>
             </tr>
             <tr>
-                <td><a href="javascript:select_model(11)">Model 11</a></td>
-                <td><a href="javascript:select_model(12)">Model 12</a></td>
-                <td><a href="javascript:select_model(13)">Model 13</a></td>
-                <td><a href="javascript:select_model(14)">Model 14</a></td>
+                <td><a href="javascript:select_model(11)">Processo 11</a></td>
+                <td><a href="javascript:select_model(12)">Processo 12</a></td>
+                <td><a href="javascript:select_model(13)">Processo 13</a></td>
+                <td><a href="javascript:select_model(14)">Processo 14</a></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
@@ -156,8 +156,8 @@
             <form id="options">
                 <table id="table_selected_model">
                     <tr>
-                        <th>Selected Model: <span id="model_id"></span></th>
-                        <th>Model parameters</th>
+                        <th>Processo selecionado: <span id="model_id"></span></th>
+                        <th>Parâmetros do processo</th>
                     </tr>
                     <tr>
                         <td><img id="model_img" /></td>
@@ -166,21 +166,21 @@
                 </table>
                 <table id="table_options">
                     <tr>
-                        <th colspan="2">Options</th>
+                        <th colspan="2">Opções</th>
                     </tr>
                     <tr>
-                        <td><label for="n_method">Numerical Method:</label></td>
+                        <td><label for="n_method">Método numérico para discretização:</label></td>
                         <td>
                             <select name="n_method">
                                 <option value="1">Euler</option>
-                                <option value="2">Runge-Kutta 2nd order</option>
-                                <option value="3">Runge-Kutta 3rd order</option>
-                                <option value="4">Runge-Kutta 4th order</option>
+                                <option value="2">Runge-Kutta de 2ª ordem</option>
+                                <option value="3">Runge-Kutta de 3ª ordem</option>
+                                <option value="4">Runge-Kutta de 4ª ordem</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="t_method">Tuning Method:</label></td>
+                        <td><label for="t_method">Metodo de sintonia para o Controlador:</label></td>
                         <td>
                             <select name="t_method">
                                 <option value="1">Ziegler-Nichols</option>
@@ -191,16 +191,30 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="sample">Sample Time:</label></td>
+                        <td><label for="sample">Tempo de Amostragem:</label></td>
                         <td><input type="text" class="required number" id="sample" name="Sample_Time" /></td>
                     </tr>
                     <tr>
-                        <td><label for="time">Total Time:</label></td>
+                        <td><label for="time">Tempo Total:</label></td>
                         <td><input type="text" class="required number" id="total" name="Total_Time" /></td>
                     </tr>
                     <tr>
+                        <td><label for="time">O que plotar:</label></td>
+                        <td>
+                            <select name="what">
+                                <option value="1">Identificação do processo</option>
+                                <option value="2">Resposta do Controlador PID</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2">
-                            <input id="plot_button" type="submit" value="Plot!" />
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input id="plot_button" type="submit" value="Plotar!" />
                         </td>
                     </tr>
                 </table>

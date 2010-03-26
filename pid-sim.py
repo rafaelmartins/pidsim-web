@@ -115,24 +115,56 @@ class Application(object):
         )
     
     def act_plot(self, req, vars):
-        args = self.__additional_form(req, vars)
+        
         nmethod = self.__get_nmethod(req)
         tmethod = self.__get_tmethod(req)
+        
+        args = self.__additional_form(req, vars)
         g = models[vars[0]].tf_callback(**args)
+        
         sample = float(req.GET['Sample_Time'])
-        time  = float(req.GET['Total_Time'])
-        #kp, ki, kd = tmethod(g, sample, time, nmethod)
-        #g_ = tf([kd, kp, ki], [1, 0])
-        #my_g = (g_ * g).feedback_unit()
+        time = float(req.GET['Total_Time'])
+        what = int(req.GET['what'])
+        
+        fig = Figure(figsize=(8, 6), dpi=100)
+        ax = fig.add_subplot(
+            111,
+            xlabel = 'Tempo (seg)',
+            ylabel = 'Amplitude',
+        )
+        
         t, y = nmethod(g, sample, time)
-        #t1, y1 = nmethod(my_g, sample, time)
+        ax.plot(t, y, label='Resposta ao Degrau')
         
-        rt,ry = tuning_rule(t, y)
+        kp, ki, kd = tmethod(g, sample, time, nmethod)
         
-        fig=Figure(figsize=(8, 6), dpi=100)
-        ax=fig.add_subplot(111)
-        ax.plot(t, y, rt, ry)
-        canvas=FigureCanvas(fig)
+        if what == 2:
+            g_ = tf([kd, kp, ki], [1, 0])
+            my_g = (g_ * g).feedback_unit()
+            t1, y1 = nmethod(my_g, sample, time)
+            ax.plot(t1, y1, label='Resposta ao Degrau Controlada')
+        else:
+            t1, y1 = tuning_rule(t, y)
+            ax.plot(t1, y1, label='Reta de Carga')
+            ax.annotate(
+                '28%', xy=(t1[1], y1[1]), xycoords='data',
+                xytext=(t1[1]+(time/15.0), y1[1]),
+                arrowprops=dict(facecolor='black', shrink=0.05),
+            )
+            ax.annotate(
+                '63%', xy=(t1[2], y1[2]), xycoords='data',
+                xytext=(t1[2]+(time/15.0), y1[2]),
+                arrowprops=dict(facecolor='black', shrink=0.05),
+            )
+
+        
+        leg = ax.legend(
+            loc = 'best',
+            prop = {'size': 'x-small'},
+            title = 'kp=%.1f; ki=%.1f; kd=%.1f;' % (kp, ki, kd),
+        )
+
+        canvas = FigureCanvas(fig)
         image = StringIO.StringIO()
         canvas.print_png(image)
         return Response(
