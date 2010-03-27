@@ -163,6 +163,8 @@ class Application(object):
             prop = {'size': 'x-small'},
             title = 'kp=%.1f; ki=%.1f; kd=%.1f;' % (kp, ki, kd),
         )
+        
+        ax.grid(True)
 
         canvas = FigureCanvas(fig)
         image = StringIO.StringIO()
