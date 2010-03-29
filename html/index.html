@@ -69,67 +69,77 @@
         });
         </script>
         <style type="text/css">
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            body{
-                font-family: Verdana;
-                text-align: center;
-            }
-            h1{
-                text-align: center;
-                margin: 10px auto;
-            }
-            a{
-                color: #0000CC;
-            }
-            input, select{
-                width: 200px;
-            }
-            table{
-                margin: 5px auto;
-                text-align: center;
-            }
-            hr{
-                margin: 10px 0;
-            }
-            a img{
-                border: none;
-                margin: 5px;
-            }
-            #models td{
-                padding: 5px;
-            }
-            #selected_model{
-                display: none;
-            }
-            #table_selected_model td{
-                padding: 0 20px;
-            }
-            #graph{
-                width: 800px;
-                margin: 0 auto;
-            }
-            #additional_form label, #table_options label{
-                text-align: right;
-                float: right;
-            }
-            #additional_form input, #table_options input, #table_options select{
-                text-align: left;
-                float: left;
-            }
-            #add_form td{
-                padding: 0;
-            }
-            #plot_button{
-                width: 70px;
-                text-align: center !important;
-                float: none !important;
-            }
-            #table_options th{
-                padding-bottom: 5px;
-            }
+        /* html elements */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Verdana;
+            text-align: center;
+        }
+        h1 {
+            margin: 10px auto;
+        }
+        th {
+            padding-bottom: 7px;
+        }
+        label {
+            float: left;
+        }
+        hr {
+            margin-bottom: 10px;
+        }
+        a img {
+            border: none;
+            margin: 5px;
+        }
+        
+        /* table models */
+        #models {
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+        #models input {
+            width: 100px;
+        }
+        
+        /* div selected_model */
+        #selected_model {
+            display: none;
+        }
+        #selected_model p{
+            margin-bottom: 10px;
+        }
+        
+        /* table table_selected_model */
+        #table_selected_model {
+            width: 800px;
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+        #table_selected_model table {
+            margin: 0 auto;
+        }
+        
+        /* table table_options */
+        #table_options {
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+        #table_options input, #table_options select {
+            width: 200px;
+        }
+        
+        /* paragraph footer */
+        #footer {
+            font-size: x-small;
+        }
+        
+        /* div graph */ 
+        #graph {
+            margin-bottom: 10px;
+        }
         </style>
     </head>
     <body>
@@ -139,24 +149,24 @@
                 <th colspan="5">Escolha um processo para simular:</th>
             </tr>
             <tr>
-                <td><a href="javascript:select_model(1)">Processo 1</a></td>
-                <td><a href="javascript:select_model(2)">Processo 2</a></td>
-                <td><a href="javascript:select_model(3)">Processo 3</a></td>
-                <td><a href="javascript:select_model(4)">Processo 4</a></td>
-                <td><a href="javascript:select_model(5)">Processo 5</a></td>
+                <td><input type="button" value="Processo 1" onclick="select_model(1)" /></td>
+                <td><input type="button" value="Processo 2" onclick="select_model(2)" /></td>
+                <td><input type="button" value="Processo 3" onclick="select_model(3)" /></td>
+                <td><input type="button" value="Processo 4" onclick="select_model(4)" /></td>
+                <td><input type="button" value="Processo 5" onclick="select_model(5)" /></td>
             </tr>
             <tr>
-                <td><a href="javascript:select_model(6)">Processo 6</a></td>
-                <td><a href="javascript:select_model(7)">Processo 7</a></td>
-                <td><a href="javascript:select_model(8)">Processo 8</a></td>
-                <td><a href="javascript:select_model(9)">Processo 9</a></td>
-                <td><a href="javascript:select_model(10)">Processo 10</a></td>
+                <td><input type="button" value="Processo 6" onclick="select_model(6)" /></td>
+                <td><input type="button" value="Processo 7" onclick="select_model(7)" /></td>
+                <td><input type="button" value="Processo 8" onclick="select_model(8)" /></td>
+                <td><input type="button" value="Processo 9" onclick="select_model(9)" /></td>
+                <td><input type="button" value="Processo 10" onclick="select_model(10)" /></td>
             </tr>
             <tr>
-                <td><a href="javascript:select_model(11)">Processo 11</a></td>
-                <td><a href="javascript:select_model(12)">Processo 12</a></td>
-                <td><a href="javascript:select_model(13)">Processo 13</a></td>
-                <td><a href="javascript:select_model(14)">Processo 14</a></td>
+                <td><input type="button" value="Processo 11" onclick="select_model(11)" /></td>
+                <td><input type="button" value="Processo 12" onclick="select_model(12)" /></td>
+                <td><input type="button" value="Processo 13" onclick="select_model(13)" /></td>
+                <td><input type="button" value="Processo 14" onclick="select_model(14)" /></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
@@ -191,8 +201,8 @@
                         <td><label for="t_method">Metodo de sintonia para o Controlador:</label></td>
                         <td>
                             <select name="t_method">
-                                <option value="1">Ziegler-Nichols</option>
-                                <option value="2">Cohen-Coon</option>
+                                <option value="1">Ziegler Nichols</option>
+                                <option value="2">Cohen Coon</option>
                                 <option value="3">Chien Hrones Reswick 0%</option>
                                 <option value="4">Chien Hrones Reswick 20%</option>
                             </select>
@@ -206,31 +216,19 @@
                         <td><label for="time">Tempo Total:</label></td>
                         <td><input type="text" class="required number" id="total" name="Total_Time" /></td>
                     </tr>
-                    <tr>
-                        <td><label for="time">O que plotar:</label></td>
-                        <td>
-                            <select name="what">
-                                <option value="1">Identificação do processo</option>
-                                <option value="2">Resposta do Controlador PID</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            &nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input id="plot_button" type="submit" value="Plotar!" />
-                        </td>
-                    </tr>
                 </table>
+                <p>
+                    <select name="what">
+                        <option value="1">Identificação do processo (Curva de reação)</option>
+                        <option value="2">Simulação do Controlador PID</option>
+                    </select>
+                    <input id="plot_button" type="submit" value="Plotar!" />
+                </p>
             </form>
         </div>
         <div id="graph"></div>
         <hr />
-        <p>
+        <p id="footer">
             &copy;2009-2010 Rafael Gonçalves Martins.<br />
             <a href="http://www.python.org">
                 <img src="http://www.python.org/community/logos/python-powered-w-100x40.png" />
