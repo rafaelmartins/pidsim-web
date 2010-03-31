@@ -124,9 +124,9 @@ class Application(object):
         args = self.__additional_form(req, vars)
         g = models[vars[0]].tf_callback(**args)
         
-        sample = float(req.GET['Sample_Time'])
-        time = float(req.GET['Total_Time'])
-        what = int(req.GET['what'])
+        sample = float(req.GET.get('Sample_Time', 0.01))
+        time = float(req.GET.get('Total_Time', 10))
+        what = int(req.GET.get('what', 2))
         
         fig = Figure(figsize=(8, 6), dpi=100)
         ax = fig.add_subplot(
@@ -141,10 +141,20 @@ class Application(object):
         if tmethod is not None:        
             kp, ki, kd = tmethod(g, sample, time, nmethod)
         else:
-            kp = float(req.GET['kp'])
-            ki = float(req.GET['ki'])
-            kd = float(req.GET['kd'])
-            what = 2
+            try:
+                kp = float(req.GET.get('kp', 0))
+            except:
+                kp = 0
+            
+            try:
+                ki = float(req.GET.get('ki', 0))
+            except:
+                ki = 0
+            
+            try:
+                kd = float(req.GET.get('kd', 0))
+            except:
+                kd = 0
         
         if what == 2:
             g_ = tf([kd, kp, ki], [1, 0])

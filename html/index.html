@@ -39,11 +39,13 @@
             $("#t_method").change(function(){
                 if($(this).val() == "0"){
                     $("#pid_parameters").show();
-                    $("#what").hide();
+                    $("#what").val('2');
+                    $("#what").attr("disabled", true);
                 }
                 else{
                     $("#pid_parameters").hide();
-                    $("#show").show();
+                    $("#what").val('1');
+                    $("#what").attr("disabled", false);
                 }
             });
             $("#options").validate({
@@ -238,15 +240,15 @@
                     </tr>
                     <tr>
                         <td><label for="sample">Ganho proporcional (kp):</label></td>
-                        <td><input type="text" class="required number" id="kp" name="kp" /></td>
+                        <td><input type="text" class="number" id="kp" name="kp" /></td>
                     </tr>
                     <tr>
                         <td><label for="sample">Ganho integral (ki):</label></td>
-                        <td><input type="text" class="required number" id="ki" name="ki" /></td>
+                        <td><input type="text" class="number" id="ki" name="ki" /></td>
                     </tr>
                     <tr>
                         <td><label for="sample">Ganho derivativo (kd):</label></td>
-                        <td><input type="text" class="required number" id="kd" name="kd" /></td>
+                        <td><input type="text" class="number" id="kd" name="kd" /></td>
                     </tr>
                 </table>
                 <p>
