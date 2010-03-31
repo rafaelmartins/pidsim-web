@@ -3,8 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Simulador de Controladores PID</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-        <script src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js" type="text/javascript"></script>
+        <script src="http://files.rafaelmartins.eng.br/js/jquery.min.js" type="text/javascript"></script>
+        <script src="http://files.rafaelmartins.eng.br/js/jquery.validate.js" type="text/javascript"></script>
         <script type="text/javascript">
         var model = null;
         var blacklist = [4, 8, 9, 14];
@@ -30,11 +30,22 @@
                         $('#additional_form').html("Sem parametros.");
                     }
                     $('#selected_model').show();
+                    $('#what').val('1');
                 });
             }
         }
         
         $(document).ready(function() {
+            $("#t_method").change(function(){
+                if($(this).val() == "0"){
+                    $("#pid_parameters").show();
+                    $("#what").hide();
+                }
+                else{
+                    $("#pid_parameters").hide();
+                    $("#show").show();
+                }
+            });
             $("#options").validate({
                 onsubmit: true,
                 onfocusout: false,
@@ -52,12 +63,12 @@
                     // Wow, we have a model to plot! :D
                     ts = Math.round(new Date().getTime() / 1000);
                     img_url = 'plot/' + model + '?' + $("#options").serialize();
-                    $('#graph').html('<img src="' + img_url + '&a=' + ts + '" />');
+                    $('#graph').html('<img src="' + img_url + '&uts=' + ts + '" />');
                     return false;
                 },
                 showErrors: function(errorMap, errorList) {
                     if(errorList.length > 0) {
-                        // Dammit
+                        // Dammit!
                         var aux = "Erros:\n\n";
                         for(key in errorMap) {
                             aux += key + ": " + errorMap[key] + "\n";
@@ -114,7 +125,7 @@
         
         /* table table_selected_model */
         #table_selected_model {
-            width: 800px;
+            width: 630px;
             margin: 0 auto;
             margin-bottom: 15px;
         }
@@ -122,13 +133,16 @@
             margin: 0 auto;
         }
         
-        /* table table_options */
-        #table_options {
+        /* tables table_options and pid_parameters */
+        #table_options, #pid_parameters {
             margin: 0 auto;
             margin-bottom: 15px;
         }
-        #table_options input, #table_options select {
+        #table_options input, #table_options select, #pid_parameters input {
             width: 200px;
+        }
+        #pid_parameters {
+            display: none;
         }
         
         /* paragraph footer */
@@ -198,29 +212,47 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="t_method">Metodo de sintonia para o Controlador:</label></td>
+                        <td><label for="t_method">Metodo de sintonia para o controlador:</label></td>
                         <td>
-                            <select name="t_method">
+                            <select name="t_method" id="t_method">
                                 <option value="1">Ziegler Nichols</option>
                                 <option value="2">Cohen Coon</option>
                                 <option value="3">Chien Hrones Reswick 0%</option>
                                 <option value="4">Chien Hrones Reswick 20%</option>
+                                <option value="0">Manual</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="sample">Tempo de Amostragem:</label></td>
+                        <td><label for="sample">Tempo de amostragem:</label></td>
                         <td><input type="text" class="required number" id="sample" name="Sample_Time" /></td>
                     </tr>
                     <tr>
-                        <td><label for="time">Tempo Total:</label></td>
+                        <td><label for="time">Tempo total de simulação:</label></td>
                         <td><input type="text" class="required number" id="total" name="Total_Time" /></td>
                     </tr>
                 </table>
+                <table id="pid_parameters">
+                    <tr>
+                        <th colspan="2">Parametros do Controlador PID</th>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">Ganho proporcional (kp):</label></td>
+                        <td><input type="text" class="required number" id="kp" name="kp" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">Ganho integral (ki):</label></td>
+                        <td><input type="text" class="required number" id="ki" name="ki" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">Ganho derivativo (kd):</label></td>
+                        <td><input type="text" class="required number" id="kd" name="kd" /></td>
+                    </tr>
+                </table>
                 <p>
-                    <select name="what">
-                        <option value="1">Identificação do processo (Curva de reação)</option>
-                        <option value="2">Simulação do Controlador PID</option>
+                    <select name="what" id="what">
+                        <option value="1">Identificação do processo (Curva de Reação)</option>
+                        <option value="2">Simulação do controlador PID</option>
                     </select>
                     <input id="plot_button" type="submit" value="Plotar!" />
                 </p>

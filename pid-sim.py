@@ -74,7 +74,9 @@ class Application(object):
     
     def __get_tmethod(self, req):
         m = req.GET['t_method']
-        if m == '1':
+        if m == '0':
+            return None
+        elif m == '1':
             return ZieglerNichols
         elif m == '2':
             return CohenCoon
@@ -136,7 +138,13 @@ class Application(object):
         t, y = nmethod(g, sample, time)
         ax.plot(t, y, label='Resposta ao Degrau')
         
-        kp, ki, kd = tmethod(g, sample, time, nmethod)
+        if tmethod is not None:        
+            kp, ki, kd = tmethod(g, sample, time, nmethod)
+        else:
+            kp = float(req.GET['kp'])
+            ki = float(req.GET['ki'])
+            kd = float(req.GET['kd'])
+            what = 2
         
         if what == 2:
             g_ = tf([kd, kp, ki], [1, 0])
@@ -145,7 +153,7 @@ class Application(object):
             ax.plot(t1, y1, label='Resposta ao Degrau Controlada')
         else:
             t1, y1 = tuning_rule(t, y)
-            ax.plot(t1, y1, label='Reta de Carga')
+            ax.plot(t1, y1, label='Reta de Sintonia')
             ax.annotate(
                 '28%', xy=(t1[1], y1[1]), xycoords='data',
                 xytext=(t1[1]+(time/15.0), y1[1]),
