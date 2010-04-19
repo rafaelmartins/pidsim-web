@@ -17,7 +17,6 @@ class Model(object):
         return mimetex + '?' + urllib.pathname2url('\\fs5 ' + self.latex_model)
 
 def p5(n):
-    print 'aaaa'
     a = pol([1, 1])
     for i in range(1, int(n)):
         a = a * pol([1, 1])
