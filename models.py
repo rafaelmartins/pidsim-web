@@ -13,7 +13,7 @@ class Model(object):
         self.additional_form = additional_form
     
     def get_model_img(self):
-        mimetex = 'http://rafaelmartins.webfactional.com/tex/mimetex.cgi'
+        mimetex = 'http://walrus.rafaelmartins.eng.br/cgi-bin/mimetex.cgi'
         return mimetex + '?' + urllib.pathname2url('\\fs5 ' + self.latex_model)
 
 def p5(n):
