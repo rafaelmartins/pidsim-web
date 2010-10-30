@@ -1,0 +1,74 @@
+/* html elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Verdana;
+    text-align: center;
+}
+h1 {
+    margin: 10px auto;
+}
+th {
+    padding-bottom: 7px;
+}
+label {
+    float: left;
+}
+hr {
+    margin-bottom: 10px;
+}
+a img {
+    border: none;
+    margin: 5px;
+}
+
+/* table models */
+#models {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+#models input {
+    width: 100px;
+}
+
+/* div selected_model */
+#selected_model {
+    display: none;
+}
+#selected_model p{
+    margin-bottom: 10px;
+}
+
+/* table table_selected_model */
+#table_selected_model {
+    width: 630px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+#table_selected_model table {
+    margin: 0 auto;
+}
+
+/* tables table_options and pid_parameters */
+#table_options, #pid_parameters {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+#table_options input, #table_options select, #pid_parameters input {
+    width: 200px;
+}
+#pid_parameters {
+    display: none;
+}
+
+/* paragraph footer */
+#footer {
+    font-size: x-small;
+}
+
+/* div graph */ 
+#graph {
+    margin-bottom: 10px;
+}

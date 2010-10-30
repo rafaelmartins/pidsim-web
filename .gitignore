@@ -1,0 +1,5 @@
+# python stuff
+*.py[co]
+build
+dist
+MANIFEST

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{{ _('Simulador de Controladores PID') }}</title>
+        <script src="{{ url_for('static', filename='jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url_for('static', filename='jquery.validate.js') }}" type="text/javascript"></script>
+        <script src="{{ url_for('main.js') }}" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pidsim.css') }}" />
+    </head>
+    <body>
+        <h1>{{ _('Simulador de Controladores PID') }}</h1>
+        <table id="models">
+            <tr>
+                <th colspan="5">{{ _('Escolha um processo para simular'):</th>
+            </tr>
+            {%- for i in range(((models|count)/5.0)|round(method='ceil')*5) %}
+            {%- if i%5.0 == 0 %}
+            <tr>
+            {%- endif %}
+                {%- if i+1 in models %}
+                <td><input type="button" value="{{ _('Processo') }} {{ i+1 }}" onclick="select_model({{ i+1 }})" /></td>
+                {%- else %}
+                <td>&nbsp;</td>
+                {%- endif %}
+            {%- if (i+1)%5.0 == 0 %}
+            </tr>
+            {%- endif %}
+            {%- endfor %}
+        </table>
+        <div id="selected_model">
+            <form id="options">
+                <table id="table_selected_model">
+                    <tr>
+                        <th>{{ _('Processo selecionado') }}: <span id="model_id"></span></th>
+                        <th>{{ _('Parâmetros do processo') }}</th>
+                    </tr>
+                    <tr>
+                        <td><img id="model_img" /></td>
+                        <td id="additional_form"></td>
+                    </tr>
+                </table>
+                <table id="table_options">
+                    <tr>
+                        <th colspan="2">{{ _('Opções') }}</th>
+                    </tr>
+                    <tr>
+                        <td><label for="n_method">{{ _('Método numérico para discretização:') }}</label></td>
+                        <td>
+                            <select name="n_method">
+                                <option value="1">{{ _('Euler') }}</option>
+                                <option value="2">{{ _('Runge-Kutta de 2ª ordem') }}</option>
+                                <option value="3">{{ _('Runge-Kutta de 3ª ordem') }}</option>
+                                <option value="4">{{ _('Runge-Kutta de 4ª ordem') }}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="t_method">{{ _('Metodo de sintonia para o controlador') }}:</label></td>
+                        <td>
+                            <select name="t_method" id="t_method">
+                                <option value="1">{{ _('Ziegler Nichols') }}</option>
+                                <option value="2">{{ _('Cohen Coon') }}</option>
+                                <option value="3">{{ _('Chien Hrones Reswick 0%%') }}</option>
+                                <option value="4">{{ _('Chien Hrones Reswick 20%%') }}</option>
+                                <option value="0">{{ _('Manual') }}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">{{ _('Tempo de amostragem (em segundos)') }}:</label></td>
+                        <td><input type="text" class="required number" id="sample" name="Sample_Time" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="time">{{ _('Tempo total de simulação (em segundos)') }}:</label></td>
+                        <td><input type="text" class="required number" id="total" name="Total_Time" /></td>
+                    </tr>
+                </table>
+                <table id="pid_parameters">
+                    <tr>
+                        <th colspan="2">{{ _('Parametros do Controlador PID') }}</th>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">{{ _('Ganho proporcional (kp)') }}:</label></td>
+                        <td><input type="text" class="number" id="kp" name="kp" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">{{ _('Ganho integral (ki)') }}:</label></td>
+                        <td><input type="text" class="number" id="ki" name="ki" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sample">{{ _('Ganho derivativo (kd)') }}:</label></td>
+                        <td><input type="text" class="number" id="kd" name="kd" /></td>
+                    </tr>
+                </table>
+                <p>
+                    <select name="what" id="what">
+                        <option value="1">{{ _('Identificação do processo (Curva de Reação)') }}</option>
+                        <option value="2">{{ _('Simulação do controlador PID') }}</option>
+                    </select>
+                    <input id="plot_button" type="submit" value="{{ _('Plotar!') }}" />
+                </p>
+            </form>
+        </div>
+        <div id="graph"></div>
+        <hr />
+        <p id="footer">
+            &copy;2009-2010 Rafael Gonçalves Martins.<br />
+            <a href="http://www.python.org">
+                <img src="{{ url_for('static', filename='python-powered.png') }}" />
+            </a>
+        </p>
+    </body>
+</html>
