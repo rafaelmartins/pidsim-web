@@ -9,7 +9,7 @@
     :license: GPL-2, see LICENSE for more details.
 """
 
-from flask import Flask, render_template, make_response, jsonify, request
+from flask import Flask, render_template, make_response, jsonify, request, session
 from flaskext.babel import Babel, get_locale, _
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -35,7 +35,7 @@ app = Flask(__name__)
 
 # register some sane default config values
 app.config.setdefault('DEBUG', False)
-app.config.setdefault('SECRET_KEY', 'development key')
+app.config.setdefault('DEFAULT_LOCALE', 'pt_BR')
 app.config.setdefault('MIMETEX_URL', 'http://pidsim.rafaelmartins.eng.br/cgi-bin/mimetex.cgi')
 
 # load configs
@@ -53,8 +53,11 @@ def setup_jinja2():
 
 @babel.localeselector
 def get_locale():
-    # we just have pt_BR for now
-    return 'en_US'
+    if 'locale' in request.args:
+        session['locale'] = request.args['locale']
+    if 'locale' in session:
+        return session['locale']
+    return app.config['DEFAULT_LOCALE']
 
 
 @app.route('/')
@@ -169,8 +172,8 @@ def plot(id):
     
     else:
         
-        # generate the tuning_rule
-        t1, y1 = tuning_rule(t, y)
+        # generate the tuning line
+        t1, y1 = tuning_line(t, y)
         ax.plot(t1, y1, label=_('Reta de Sintonia'))
         ax.annotate(
             '28%', xy=(t1[1], y1[1]), xycoords='data',
@@ -202,3 +205,12 @@ def plot(id):
     response = make_response(image.getvalue())
     response.headers['Content-Type'] = 'image/png'
     return response
+
+@app.route('/error/<int:id>')
+def error(id):
+    try:
+        plot(id)
+    except Exception, err:
+        return jsonify(
+            error = '%s: %s' % (err.__class__.__name__, str(err))
+        )

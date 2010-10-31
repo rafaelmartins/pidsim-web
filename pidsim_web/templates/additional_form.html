@@ -2,11 +2,11 @@
     {% for item in form -%}
     <tr>
         {% if item == 'pade_order' %}
-        <td><label for="{{ item }}">{{ _('Ordem da aproximação de Padé') }}:</label></td>
+        <td><label for="{{ item }}">{{ _('Aproximação de Padé') }}:</label></td>
         <td>
             <select name="{{ item }}" class="required number">
                 {% for i in pade_orders -%}
-                <option value="{{ i }}">{{ i }}</option>
+                <option value="{{ i }}">{{ _('%(ord)dª ordem', ord=i) }}</option>
                 {% endfor -%}
             </select>
         </td>

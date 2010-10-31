@@ -24,6 +24,12 @@ function select_model(my_model) {
     });
 }
 
+function get_error() {
+    $.getJSON('{{ request.script_root }}/error/' + model + '?' + $("#options").serialize(), function(data) {
+        alert("{{ _('Erro') }}: \n\n" + data.error);
+    });
+}
+
 $(document).ready(function() {
     $("#t_method").change(function(){
         if($(this).val() == "0"){
@@ -54,7 +60,7 @@ $(document).ready(function() {
             // Wow, we have a model to plot! :D
             ts = Math.round(new Date().getTime() / 1000);
             img_url = '{{ request.script_root }}/plot/' + model + '?' + $("#options").serialize();
-            $('#graph').html('<img src="' + img_url + '&uts=' + ts + '" />');
+            $('#graph').html('<img onerror="get_error();" src="' + img_url + '&uts=' + ts + '" />');
             return false;
         },
         showErrors: function(errorMap, errorList) {

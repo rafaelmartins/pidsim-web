@@ -10,6 +10,11 @@
     </head>
     <body>
         <h1>{{ _('Simulador de Controladores PID') }}</h1>
+        <p id="language">
+            <strong>{{ _('Idiomas') }}:</strong>
+            <a href="?locale=pt_BR">{{ _('Português do Brasil') }}</a> |
+            <a href="?locale=en_US">{{ _('Inglês') }}</a>
+        </p>
         <table id="models">
             <tr>
                 <th colspan="5">{{ _('Escolha um processo para simular') }}:</th>
@@ -33,14 +38,14 @@
                 <table id="table_selected_model">
                     <tr>
                         <th>{{ _('Processo selecionado') }}: <span id="model_id"></span></th>
-                        <th>{{ _('Detalhes do processo') }}:</th>
+                        <th>{{ _('Descrição do processo') }}:</th>
                     </tr>
                     <tr>
                         <td id="model_td">
-                            <img id="model_img" />
                             <p>
                                 <em><span id="model_name" /></em>
                             </p>
+                            <img id="model_img" />
                         </td>
                         <td id="model_description"></td>
                     </tr>
@@ -74,8 +79,8 @@
                             <select name="t_method" id="t_method">
                                 <option value="1">{{ _('Ziegler Nichols') }}</option>
                                 <option value="2">{{ _('Cohen Coon') }}</option>
-                                <option value="3">{{ _('Chien Hrones Reswick 0%%') }}</option>
-                                <option value="4">{{ _('Chien Hrones Reswick 20%%') }}</option>
+                                <option value="3">{{ _('Chien Hrones Reswick') }} 0%</option>
+                                <option value="4">{{ _('Chien Hrones Reswick') }} 20%</option>
                                 <option value="0">{{ _('Manual') }}</option>
                             </select>
                         </td>
