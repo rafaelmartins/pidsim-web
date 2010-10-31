@@ -139,17 +139,17 @@ def plot(id):
         kp, ki, kd = tmethod(g, sample, time, nmethod)
     else:
         try:
-            kp = float(req.GET.get('kp', 0))
+            kp = float(request.args.get('kp', 0))
         except:
             kp = 0
         
         try:
-            ki = float(req.GET.get('ki', 0))
+            ki = float(request.args.get('ki', 0))
         except:
             ki = 0
         
         try:
-            kd = float(req.GET.get('kd', 0))
+            kd = float(request.args.get('kd', 0))
         except:
             kd = 0
     
