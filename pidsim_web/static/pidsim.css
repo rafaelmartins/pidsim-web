@@ -70,7 +70,7 @@ table input, table select {
 
 /* div graph */ 
 #graph {
-    margin-bottom: 10px;
+    margin: 10px auto;
 }
 
 #add_form {

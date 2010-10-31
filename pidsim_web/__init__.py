@@ -14,7 +14,6 @@ from flaskext.babel import Babel, get_locale, _
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-from matplotlib.dates import DateFormatter
 
 from pidsim.approximation import methods as pade
 from pidsim.discretization import *
