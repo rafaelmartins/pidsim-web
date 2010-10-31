@@ -54,7 +54,7 @@ def setup_jinja2():
 @babel.localeselector
 def get_locale():
     # we just have pt_BR for now
-    return 'pt_BR'
+    return 'en_US'
 
 
 @app.route('/')

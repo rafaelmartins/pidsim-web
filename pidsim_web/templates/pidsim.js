@@ -46,7 +46,7 @@ $(document).ready(function() {
             // Validation to save resources :P
             if(($("#total").val() / $("#sample").val()) > 5000){
                 window.alert(
-                    "{{ _('Erro: \\n\\nSeu gráfico teria mais de 5000 pontos.\\n') }}" + 
+                    "{{ _('Erro') }}: \n\n{{ _('Seu gráfico teria mais de 5000 pontos.') }}\n" + 
                     "{{ _('Por favor, diminua o Tempo Total ou aumente o Tempo de Amostragem.') }}"
                 );
                 return false;
@@ -60,7 +60,7 @@ $(document).ready(function() {
         showErrors: function(errorMap, errorList) {
             if(errorList.length > 0) {
                 // Dammit!
-                var aux = "{{ _('Erros:\\n\\n') }}";
+                var aux = "{{ _('Erros') }}:\n\n";
                 for(key in errorMap) {
                     aux += key + ": " + errorMap[key] + "\n";
                 }

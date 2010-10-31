@@ -1,0 +1,177 @@
+# Translations template for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-10-31 02:14-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.5\n"
+
+#: pidsim_web/__init__.py:132
+msgid "Tempo (seg)"
+msgstr ""
+
+#: pidsim_web/__init__.py:133
+msgid "Amplitude"
+msgstr ""
+
+#: pidsim_web/__init__.py:138
+msgid "Resposta ao Degrau"
+msgstr ""
+
+#: pidsim_web/__init__.py:168
+msgid "Resposta ao Degrau Controlada"
+msgstr ""
+
+#: pidsim_web/__init__.py:174
+msgid "Reta de Sintonia"
+msgstr ""
+
+#: pidsim_web/templates/additional_form.html:5
+msgid "Ordem da aproximação de Padé"
+msgstr ""
+
+#: pidsim_web/templates/index.html:5 pidsim_web/templates/index.html:12
+msgid "Simulador de Controladores PID"
+msgstr ""
+
+#: pidsim_web/templates/index.html:15
+msgid "Escolha um processo para simular"
+msgstr ""
+
+#: pidsim_web/templates/index.html:22
+msgid "Processo"
+msgstr ""
+
+#: pidsim_web/templates/index.html:35
+msgid "Processo selecionado"
+msgstr ""
+
+#: pidsim_web/templates/index.html:36
+msgid "Detalhes do processo"
+msgstr ""
+
+#: pidsim_web/templates/index.html:50
+msgid "Parâmetros do processo"
+msgstr ""
+
+#: pidsim_web/templates/index.html:58
+msgid "Parâmetros gerais"
+msgstr ""
+
+#: pidsim_web/templates/index.html:61
+msgid "Método numérico para discretização:"
+msgstr ""
+
+#: pidsim_web/templates/index.html:64
+msgid "Euler"
+msgstr ""
+
+#: pidsim_web/templates/index.html:65
+msgid "Runge-Kutta de 2ª ordem"
+msgstr ""
+
+#: pidsim_web/templates/index.html:66
+msgid "Runge-Kutta de 3ª ordem"
+msgstr ""
+
+#: pidsim_web/templates/index.html:67
+msgid "Runge-Kutta de 4ª ordem"
+msgstr ""
+
+#: pidsim_web/templates/index.html:72
+msgid "Metodo de sintonia para o controlador"
+msgstr ""
+
+#: pidsim_web/templates/index.html:75
+msgid "Ziegler Nichols"
+msgstr ""
+
+#: pidsim_web/templates/index.html:76
+msgid "Cohen Coon"
+msgstr ""
+
+#: pidsim_web/templates/index.html:77
+#, python-format
+msgid "Chien Hrones Reswick 0%%"
+msgstr ""
+
+#: pidsim_web/templates/index.html:78
+#, python-format
+msgid "Chien Hrones Reswick 20%%"
+msgstr ""
+
+#: pidsim_web/templates/index.html:79
+msgid "Manual"
+msgstr ""
+
+#: pidsim_web/templates/index.html:84
+msgid "Tempo de amostragem (em segundos)"
+msgstr ""
+
+#: pidsim_web/templates/index.html:88
+msgid "Tempo total de simulação (em segundos)"
+msgstr ""
+
+#: pidsim_web/templates/index.html:94
+msgid "Parâmetros do Controlador PID"
+msgstr ""
+
+#: pidsim_web/templates/index.html:97
+msgid "Ganho proporcional (kp)"
+msgstr ""
+
+#: pidsim_web/templates/index.html:101
+msgid "Ganho integral (ki)"
+msgstr ""
+
+#: pidsim_web/templates/index.html:105
+msgid "Ganho derivativo (kd)"
+msgstr ""
+
+#: pidsim_web/templates/index.html:111
+msgid "Identificação do processo (Curva de Reação)"
+msgstr ""
+
+#: pidsim_web/templates/index.html:112
+msgid "Simulação do controlador PID"
+msgstr ""
+
+#: pidsim_web/templates/index.html:114
+msgid "Plotar!"
+msgstr ""
+
+#: pidsim_web/templates/pidsim.js:13
+msgid "Não há descrição disponível."
+msgstr ""
+
+#: pidsim_web/templates/pidsim.js:20
+msgid "Este processo não possui parâmetros."
+msgstr ""
+
+#: pidsim_web/templates/pidsim.js:49
+msgid "Erro"
+msgstr ""
+
+#: pidsim_web/templates/pidsim.js:49
+msgid "Seu gráfico teria mais de 5000 pontos."
+msgstr ""
+
+#: pidsim_web/templates/pidsim.js:50
+msgid "Por favor, diminua o Tempo Total ou aumente o Tempo de Amostragem."
+msgstr ""
+
+#: pidsim_web/templates/pidsim.js:63
+msgid "Erros"
+msgstr ""
+
