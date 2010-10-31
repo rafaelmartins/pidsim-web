@@ -22,7 +22,11 @@ from pidsim.types import tf
 
 from pidsim_models import models
 
-from StringIO import StringIO
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from StringIO import StringIO
+
 from urllib import pathname2url
 
 
