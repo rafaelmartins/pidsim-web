@@ -5,14 +5,14 @@
         <title>{{ _('Simulador de Controladores PID') }}</title>
         <script src="{{ url_for('static', filename='jquery.min.js') }}" type="text/javascript"></script>
         <script src="{{ url_for('static', filename='jquery.validate.js') }}" type="text/javascript"></script>
-        <script src="{{ url_for('main.js') }}" type="text/javascript"></script>
+        <script src="{{ url_for('js') }}" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pidsim.css') }}" />
     </head>
     <body>
         <h1>{{ _('Simulador de Controladores PID') }}</h1>
         <table id="models">
             <tr>
-                <th colspan="5">{{ _('Escolha um processo para simular'):</th>
+                <th colspan="5">{{ _('Escolha um processo para simular') }}:</th>
             </tr>
             {%- for i in range(((models|count)/5.0)|round(method='ceil')*5) %}
             {%- if i%5.0 == 0 %}
@@ -33,16 +33,29 @@
                 <table id="table_selected_model">
                     <tr>
                         <th>{{ _('Processo selecionado') }}: <span id="model_id"></span></th>
-                        <th>{{ _('Parâmetros do processo') }}</th>
+                        <th>{{ _('Detalhes do processo') }}:</th>
                     </tr>
                     <tr>
-                        <td><img id="model_img" /></td>
+                        <td id="model_td">
+                            <img id="model_img" />
+                            <p>
+                                <em><span id="model_name" /></em>
+                            </p>
+                        </td>
+                        <td id="model_description"></td>
+                    </tr>
+                </table>
+                <table id="model_parameters">
+                    <tr>
+                        <th>{{ _('Parâmetros do processo') }}:</th>
+                    </tr>
+                    <tr>
                         <td id="additional_form"></td>
                     </tr>
                 </table>
                 <table id="table_options">
                     <tr>
-                        <th colspan="2">{{ _('Opções') }}</th>
+                        <th colspan="2">{{ _('Parâmetros gerais') }}:</th>
                     </tr>
                     <tr>
                         <td><label for="n_method">{{ _('Método numérico para discretização:') }}</label></td>
@@ -78,7 +91,7 @@
                 </table>
                 <table id="pid_parameters">
                     <tr>
-                        <th colspan="2">{{ _('Parametros do Controlador PID') }}</th>
+                        <th colspan="2">{{ _('Parâmetros do Controlador PID') }}</th>
                     </tr>
                     <tr>
                         <td><label for="sample">{{ _('Ganho proporcional (kp)') }}:</label></td>
@@ -93,7 +106,7 @@
                         <td><input type="text" class="number" id="kd" name="kd" /></td>
                     </tr>
                 </table>
-                <p>
+                <p id="p_what">
                     <select name="what" id="what">
                         <option value="1">{{ _('Identificação do processo (Curva de Reação)') }}</option>
                         <option value="2">{{ _('Simulação do controlador PID') }}</option>

@@ -1,0 +1,19 @@
+<table id="add_form">
+    {% for item in form -%}
+    <tr>
+        {% if item == 'pade_order' %}
+        <td><label for="{{ item }}">{{ _('Ordem da aproximação de Padé') }}:</label></td>
+        <td>
+            <select name="{{ item }}" class="required number">
+                {% for i in pade_orders -%}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor -%}
+            </select>
+        </td>
+        {% else -%}
+        <td><label for="{{ item }}">{{ item }}:</label></td>
+        <td><input type="text" name="{{ item }}" class="required number" /></td>
+        {% endif -%}
+    </tr>
+    {% endfor %}
+</table>

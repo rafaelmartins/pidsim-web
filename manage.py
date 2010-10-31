@@ -11,7 +11,7 @@
 """
 
 from flaskext.script import Server, Manager
-from pidsim_web import create_app
+from pidsim_web import app
 
 
 def create_script():
@@ -21,7 +21,6 @@ def create_script():
     :return: the script object (Flask-Themes' Manager instance).
     """
     
-    app = create_app()
     script = Manager(app)
     return script
 

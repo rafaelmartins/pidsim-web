@@ -1,15 +1,23 @@
 var model = null;
 
-function select_model(model) {
+function select_model(my_model) {
     $("#graph").html('');
-    $.getJSON('model/' + model, function(data) {
-        $('#model_id').html(data.model['id']);
-        $('#model_img').attr('src', data.model['img']);
-        if(data.model['form'] != null){
-            $('#additional_form').html(data.model['form']);
+    $.getJSON('{{ request.script_root }}/model/' + my_model, function(data) {
+        model = my_model;
+        $('#model_id').html(my_model);
+        $('#model_name').html(data.name);
+        if(data.description != null){
+            $('#model_description').html(data.description);
         }
         else{
-            $('#additional_form').html("{{ _('Sem parametros.') }}");
+            $('#model_description').html("{{ _('Não há descrição disponível.') }}");
+        }
+        $('#model_img').attr('src', data.img);
+        if(data.form != null){
+            $('#additional_form').html(data.form);
+        }
+        else{
+            $('#additional_form').html("{{ _('Este processo não possui parâmetros.') }}");
         }
         $('#selected_model').show();
         $('#what').val('1');
@@ -45,7 +53,7 @@ $(document).ready(function() {
             }
             // Wow, we have a model to plot! :D
             ts = Math.round(new Date().getTime() / 1000);
-            img_url = 'plot/' + model + '?' + $("#options").serialize();
+            img_url = '{{ request.script_root }}/plot/' + model + '?' + $("#options").serialize();
             $('#graph').html('<img src="' + img_url + '&uts=' + ts + '" />');
             return false;
         },

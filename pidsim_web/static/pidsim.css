@@ -24,6 +24,19 @@ a img {
     margin: 5px;
 }
 
+table {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+table td {
+    vertical-align: top;
+}
+
+table input, table select {
+    width: 200px;
+}
+
 /* table models */
 #models {
     margin: 0 auto;
@@ -37,28 +50,15 @@ a img {
 #selected_model {
     display: none;
 }
-#selected_model p{
+#p_what p{
     margin-bottom: 10px;
 }
 
 /* table table_selected_model */
 #table_selected_model {
     width: 630px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-}
-#table_selected_model table {
-    margin: 0 auto;
 }
 
-/* tables table_options and pid_parameters */
-#table_options, #pid_parameters {
-    margin: 0 auto;
-    margin-bottom: 15px;
-}
-#table_options input, #table_options select, #pid_parameters input {
-    width: 200px;
-}
 #pid_parameters {
     display: none;
 }
@@ -71,4 +71,26 @@ a img {
 /* div graph */ 
 #graph {
     margin-bottom: 10px;
+}
+
+#add_form {
+    margin-bottom: 0;
+}
+
+#model_name {
+    width: 300px;
+    font-size: 14px;
+}
+
+#model_td {
+    width: 300px;
+}
+
+#model_img {
+    margin-bottom: 10px;
+}
+
+#model_description {
+    font-size: 12px;
+    padding: 0 10px;
 }
