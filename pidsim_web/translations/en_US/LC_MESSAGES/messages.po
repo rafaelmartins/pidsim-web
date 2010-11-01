@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: rafael@rafaelmartins.eng.br\n"
 "POT-Creation-Date: 2010-10-31 01:36+0200\n"
-"PO-Revision-Date: 2010-10-31 04:14-0200\n"
+"PO-Revision-Date: 2010-11-01 03:22-0200\n"
 "Last-Translator: Rafael G. Martins <rafael@rafaelmartins.eng.br>\n"
 "Language-Team: en_US <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -39,7 +39,7 @@ msgstr "Tuning Rule"
 
 #: pidsim_web/templates/additional_form.html:5
 msgid "Aproximação de Padé"
-msgstr "Padé's approximation"
+msgstr "Padé approximant"
 
 #: pidsim_web/templates/additional_form.html:9
 #, python-format

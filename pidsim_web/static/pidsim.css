@@ -98,6 +98,7 @@ a {
 }
 
 #model_description {
+    width: 150px;
     font-size: 12px;
     padding: 0 10px;
     text-align: justify;
