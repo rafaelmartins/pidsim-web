@@ -35,7 +35,7 @@ msgstr "Controlled Step Response"
 
 #: pidsim_web/__init__.py:177
 msgid "Reta de Sintonia"
-msgstr "Tuning Rule"
+msgstr "Tuning Line"
 
 #: pidsim_web/templates/additional_form.html:5
 msgid "Aproximação de Padé"
