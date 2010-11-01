@@ -37,6 +37,12 @@ table input, table select {
     width: 200px;
 }
 
+a {
+    color: #0000CC;
+    text-decoration: none;
+}
+
+
 /* table models */
 #models {
     margin: 0 auto;
@@ -100,11 +106,6 @@ table input, table select {
 #language {
     font-size: 12px;
     margin-bottom: 10px;
-}
-
-#language a {
-    color: #0000CC;
-    text-decoration: none;
 }
 
 #language a:hover{

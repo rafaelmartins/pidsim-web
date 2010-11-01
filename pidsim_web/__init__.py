@@ -160,7 +160,7 @@ def plot(id):
             kd = 0
     
     # plot the simulated controller
-    if what == 2:
+    if what == 2 or tmethod is None:
         
         # transfer function of the PID controller
         g_ = tf([kd, kp, ki], [1, 0])

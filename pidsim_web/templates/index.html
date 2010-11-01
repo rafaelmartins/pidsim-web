@@ -24,7 +24,7 @@
             <tr>
             {%- endif %}
                 {%- if i+1 in models %}
-                <td><input type="button" value="{{ _('Processo') }} {{ i+1 }}" onclick="select_model({{ i+1 }})" /></td>
+                <td><input type="button" value="{{ _('Processo') }} {{ i+1 }}" onclick="select_model({{ i+1 }});" /></td>
                 {%- else %}
                 <td>&nbsp;</td>
                 {%- endif %}
@@ -123,7 +123,7 @@
         <div id="graph"></div>
         <hr />
         <p id="footer">
-            &copy;2009-2010 Rafael Gonçalves Martins.<br />
+            &copy;2009-2010 <a href="http://rafaelmartins.eng.br/">Rafael Gonçalves Martins</a>.<br />
             <a href="http://www.python.org">
                 <img src="{{ url_for('static', filename='python-powered.png') }}" />
             </a>
