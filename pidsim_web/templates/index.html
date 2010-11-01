@@ -15,6 +15,9 @@
             <a href="?locale=pt_BR">{{ _('Português do Brasil') }}</a> |
             <a href="?locale=en_US">{{ _('Inglês') }}</a>
         </p>
+        <p>
+            <img id="head_img" src="{{ url_for('static', filename='pidsim-'+get_locale()+'.png') }}" />
+        </p>
         <table id="models">
             <tr>
                 <th colspan="5">{{ _('Escolha um processo para simular') }}:</th>

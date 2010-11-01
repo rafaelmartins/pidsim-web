@@ -49,6 +49,7 @@ def setup_jinja2():
     return dict(
         models = models.index,
         pade_orders = pade.keys(),
+        get_locale = get_locale,
     )
 
 @babel.localeselector
