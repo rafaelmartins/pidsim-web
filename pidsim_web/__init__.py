@@ -9,7 +9,8 @@
     :license: GPL-2, see LICENSE for more details.
 """
 
-from flask import Flask, render_template, make_response, jsonify, request, session
+from flask import Flask, render_template, make_response, jsonify, request, \
+    session, url_for
 from flaskext.babel import Babel, get_locale, _
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -36,7 +37,6 @@ app = Flask(__name__)
 # register some sane default config values
 app.config.setdefault('DEBUG', False)
 app.config.setdefault('DEFAULT_LOCALE', 'pt_BR')
-app.config.setdefault('MIMETEX_URL', 'http://pidsim.rafaelmartins.eng.br/cgi-bin/mimetex.cgi')
 
 # load configs
 app.config.from_envvar('PIDSIM_SETTINGS', True)
@@ -74,8 +74,7 @@ def js():
 @app.route('/model/<int:id>')
 def model(id):
     model = models.index[id](str(get_locale()))
-    img_url = app.config['MIMETEX_URL'] + '?' + \
-        pathname2url('\\fs5 ' + model.transfer_function)
+    img_url = url_for('static', filename='models/%i.gif' % id)
     form = None
     if len(model.args) > 0:
         form = render_template('additional_form.html', form = model.args)
