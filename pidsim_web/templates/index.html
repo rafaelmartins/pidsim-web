@@ -22,7 +22,7 @@
             <tr>
                 <th colspan="5">{{ _('Escolha um processo para simular') }}:</th>
             </tr>
-            {%- for i in range(((models|count)/5.0)|round(method='ceil')*5) %}
+            {%- for i in range(int(((models|count)/5.0)|round(method='ceil')*5)) %}
             {%- if i%5.0 == 0 %}
             <tr>
             {%- endif %}
