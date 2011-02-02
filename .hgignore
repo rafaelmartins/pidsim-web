@@ -2,3 +2,6 @@ syntax: glob
 
 # python stuff
 *.py[co]
+
+# symlinks
+pidsim{,_models}
