@@ -109,6 +109,21 @@ def plot(id):
     else:
         nmethod = RungeKutta4
     
+    # get the identification method
+    _imethod = request.args['i_method']
+    if _imethod == '1':
+        imethod = Alfaro
+    elif _imethod == '2':
+        imethod = Broida
+    elif _imethod == '3':
+        imethod = ChenYang
+    elif _imethod == '4':
+        imethod = Ho
+    elif _imethod == '5':
+        imethod = Smith
+    else:
+        imethod = Viteckova
+    
     # get the pid_simulation method
     _tmethod = request.args['t_method']
     if _tmethod == '0':
@@ -152,7 +167,7 @@ def plot(id):
     
     # simulate the PID controller, if wanted
     if tmethod is not None:
-        kp, ki, kd = tmethod(g, sample, time, nmethod)
+        kp, ki, kd = tmethod(t, y, imethod).gains
     else:
         try:
             kp = float(request.args.get('kp', 0))
@@ -183,15 +198,16 @@ def plot(id):
     else:
         
         # generate the tuning line
-        t1, y1 = tuning_line(t, y)
+        ident = imethod(t, y)
+        t1, y1 = ident.tuning_line
         ax.plot(t1, y1, label=_('Reta de Sintonia'))
         ax.annotate(
-            '28%', xy=(t1[1], y1[1]), xycoords='data',
+            '%.1f%%' % ident.point1, xy=(t1[1], y1[1]), xycoords='data',
             xytext=(t1[1]+(time/15.0), y1[1]),
             arrowprops=dict(facecolor='black', shrink=0.05),
         )
         ax.annotate(
-            '63%', xy=(t1[2], y1[2]), xycoords='data',
+            '%.1f%%' % ident.point2, xy=(t1[2], y1[2]), xycoords='data',
             xytext=(t1[2]+(time/15.0), y1[2]),
             arrowprops=dict(facecolor='black', shrink=0.05),
         )
