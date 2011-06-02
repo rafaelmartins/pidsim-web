@@ -8,7 +8,7 @@
     :license: GPL-2, see LICENSE for more details.
 """
 
-from pidsim_web import app
+from pidsim.web import app
 app.secret_key = 'development key'
 
 if __name__ == '__main__':

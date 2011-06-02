@@ -16,12 +16,13 @@ from flaskext.babel import Babel, get_locale, _
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-from pidsim.approximation import methods as pade
-from pidsim.discretization import *
-from pidsim.pid_simulation import *
-from pidsim.types import tf
+from pidsim.core.pade import index as pade
+from pidsim.core.discretization import *
+from pidsim.core.pid.tuning import *
+from pidsim.core.pid.identification import *
+from pidsim.core.types import tf
 
-from pidsim_models import models
+from pidsim.models import models
 
 try:
     from cStringIO import StringIO
