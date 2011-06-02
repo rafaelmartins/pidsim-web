@@ -9,6 +9,15 @@
     :license: GPL-2, see LICENSE for more details.
 """
 
+__all__ = ['app']
+__author__ = 'Rafael Goncalves Martins'
+__email__ = 'rafael@rafaelmartins.eng.br'
+__description__ = 'A web-based interface for PIDSIM'
+__url__ = 'http://pidsim.org/'
+__copyright__ = '(c) 2010 %s' % __author__
+__license__ = 'GPL-2'
+__version__ = '0.1pre'
+
 from flask import Flask, render_template, make_response, jsonify, request, \
     session, url_for
 from flaskext.babel import Babel, get_locale, _

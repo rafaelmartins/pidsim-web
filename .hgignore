@@ -4,4 +4,4 @@ syntax: glob
 *.py[co]
 *.mo
 
-pidsim
+pidsim.web*
