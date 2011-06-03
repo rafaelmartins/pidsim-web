@@ -23,6 +23,11 @@ setup(
     scripts = ['pidsim-web'],
     zip_safe = False,
     include_package_data = True,
+    install_requires = [
+        'Flask>=0.6.1',
+        'Flask-Babel',
+        'matplotlib',
+    ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
