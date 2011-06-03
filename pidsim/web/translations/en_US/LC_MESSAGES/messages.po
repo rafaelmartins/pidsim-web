@@ -108,7 +108,7 @@ msgstr "Runge-Kutta (4th order)"
 
 #: pidsim/web/templates/index.html:80
 msgid "Metodo de identificação para o controlador"
-msgstr "Tuning method for the controller"
+msgstr "Identification method for the controller"
 
 #: pidsim/web/templates/index.html:83
 msgid "Alfaro"
