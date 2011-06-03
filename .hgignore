@@ -5,3 +5,4 @@ syntax: glob
 *.mo
 
 pidsim.web*
+MANIFEST
