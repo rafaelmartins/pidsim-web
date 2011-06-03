@@ -38,9 +38,6 @@ try:
 except ImportError:
     from StringIO import StringIO
 
-from urllib import pathname2url
-
-
 # create the app object
 app = Flask(__name__)
 
@@ -220,7 +217,7 @@ def _plot(id):
         )
 
     # add the legend
-    leg = ax.legend(
+    ax.legend(
         loc = 'best',
         prop = {'size': 'x-small'},
         title = 'kp=%.1f; ki=%.1f; kd=%.1f;' % (kp, ki, kd),

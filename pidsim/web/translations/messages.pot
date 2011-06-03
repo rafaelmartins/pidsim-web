@@ -1,188 +1,216 @@
-# Translations template for PROJECT.
-# Copyright (C) 2010 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# Translations template for pidsim.web.
+# Copyright (C) 2011 ORGANIZATION
+# This file is distributed under the same license as the pidsim.web project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: pidsim.web 0.1pre\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2010-10-31 04:14-0200\n"
+"POT-Creation-Date: 2011-06-03 01:29-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.5\n"
+"Generated-By: Babel 0.9.6\n"
 
-#: pidsim_web/__init__.py:135
+#: pidsim/web/__init__.py:164
 msgid "Tempo (seg)"
 msgstr ""
 
-#: pidsim_web/__init__.py:136
+#: pidsim/web/__init__.py:165
 msgid "Amplitude"
 msgstr ""
 
-#: pidsim_web/__init__.py:141
+#: pidsim/web/__init__.py:170
 msgid "Resposta ao Degrau"
 msgstr ""
 
-#: pidsim_web/__init__.py:171
+#: pidsim/web/__init__.py:200
 msgid "Resposta ao Degrau Controlada"
 msgstr ""
 
-#: pidsim_web/__init__.py:177
+#: pidsim/web/__init__.py:207
 msgid "Reta de Sintonia"
 msgstr ""
 
-#: pidsim_web/templates/additional_form.html:5
+#: pidsim/web/templates/additional_form.html:5
 msgid "Aproximação de Padé"
 msgstr ""
 
-#: pidsim_web/templates/additional_form.html:9
+#: pidsim/web/templates/additional_form.html:9
 #, python-format
 msgid "%(ord)dª ordem"
 msgstr ""
 
-#: pidsim_web/templates/index.html:5 pidsim_web/templates/index.html:12
+#: pidsim/web/templates/index.html:5 pidsim/web/templates/index.html:12
 msgid "Simulador de Controladores PID"
 msgstr ""
 
-#: pidsim_web/templates/index.html:14
+#: pidsim/web/templates/index.html:14
 msgid "Idiomas"
 msgstr ""
 
-#: pidsim_web/templates/index.html:15
+#: pidsim/web/templates/index.html:15
 msgid "Português do Brasil"
 msgstr ""
 
-#: pidsim_web/templates/index.html:16
+#: pidsim/web/templates/index.html:16
 msgid "Inglês"
 msgstr ""
 
-#: pidsim_web/templates/index.html:20
+#: pidsim/web/templates/index.html:23
 msgid "Escolha um processo para simular"
 msgstr ""
 
-#: pidsim_web/templates/index.html:27
+#: pidsim/web/templates/index.html:30
 msgid "Processo"
 msgstr ""
 
-#: pidsim_web/templates/index.html:40
+#: pidsim/web/templates/index.html:43
 msgid "Processo selecionado"
 msgstr ""
 
-#: pidsim_web/templates/index.html:41
+#: pidsim/web/templates/index.html:44
 msgid "Descrição do processo"
 msgstr ""
 
-#: pidsim_web/templates/index.html:55
+#: pidsim/web/templates/index.html:58
 msgid "Parâmetros do processo"
 msgstr ""
 
-#: pidsim_web/templates/index.html:63
+#: pidsim/web/templates/index.html:66
 msgid "Parâmetros gerais"
 msgstr ""
 
-#: pidsim_web/templates/index.html:66
+#: pidsim/web/templates/index.html:69
 msgid "Método numérico para discretização:"
 msgstr ""
 
-#: pidsim_web/templates/index.html:69
+#: pidsim/web/templates/index.html:72
 msgid "Euler"
 msgstr ""
 
-#: pidsim_web/templates/index.html:70
+#: pidsim/web/templates/index.html:73
 msgid "Runge-Kutta de 2ª ordem"
 msgstr ""
 
-#: pidsim_web/templates/index.html:71
+#: pidsim/web/templates/index.html:74
 msgid "Runge-Kutta de 3ª ordem"
 msgstr ""
 
-#: pidsim_web/templates/index.html:72
+#: pidsim/web/templates/index.html:75
 msgid "Runge-Kutta de 4ª ordem"
 msgstr ""
 
-#: pidsim_web/templates/index.html:77
+#: pidsim/web/templates/index.html:80
+msgid "Metodo de identificação para o controlador"
+msgstr ""
+
+#: pidsim/web/templates/index.html:83
+msgid "Alfaro"
+msgstr ""
+
+#: pidsim/web/templates/index.html:84
+msgid "Bröida"
+msgstr ""
+
+#: pidsim/web/templates/index.html:85
+msgid "Chen & Yang"
+msgstr ""
+
+#: pidsim/web/templates/index.html:86
+msgid "Ho et al."
+msgstr ""
+
+#: pidsim/web/templates/index.html:87
+msgid "Smith"
+msgstr ""
+
+#: pidsim/web/templates/index.html:88
+msgid "Vitecková et al."
+msgstr ""
+
+#: pidsim/web/templates/index.html:93
 msgid "Metodo de sintonia para o controlador"
 msgstr ""
 
-#: pidsim_web/templates/index.html:80
+#: pidsim/web/templates/index.html:96
 msgid "Ziegler Nichols"
 msgstr ""
 
-#: pidsim_web/templates/index.html:81
+#: pidsim/web/templates/index.html:97
 msgid "Cohen Coon"
 msgstr ""
 
-#: pidsim_web/templates/index.html:82 pidsim_web/templates/index.html:83
+#: pidsim/web/templates/index.html:98 pidsim/web/templates/index.html:99
 msgid "Chien Hrones Reswick"
 msgstr ""
 
-#: pidsim_web/templates/index.html:84
+#: pidsim/web/templates/index.html:100
 msgid "Manual"
 msgstr ""
 
-#: pidsim_web/templates/index.html:89
+#: pidsim/web/templates/index.html:105
 msgid "Tempo de amostragem (em segundos)"
 msgstr ""
 
-#: pidsim_web/templates/index.html:93
+#: pidsim/web/templates/index.html:109
 msgid "Tempo total de simulação (em segundos)"
 msgstr ""
 
-#: pidsim_web/templates/index.html:99
+#: pidsim/web/templates/index.html:115
 msgid "Parâmetros do Controlador PID"
 msgstr ""
 
-#: pidsim_web/templates/index.html:102
+#: pidsim/web/templates/index.html:118
 msgid "Ganho proporcional (kp)"
 msgstr ""
 
-#: pidsim_web/templates/index.html:106
+#: pidsim/web/templates/index.html:122
 msgid "Ganho integral (ki)"
 msgstr ""
 
-#: pidsim_web/templates/index.html:110
+#: pidsim/web/templates/index.html:126
 msgid "Ganho derivativo (kd)"
 msgstr ""
 
-#: pidsim_web/templates/index.html:116
+#: pidsim/web/templates/index.html:132
 msgid "Identificação do processo (Curva de Reação)"
 msgstr ""
 
-#: pidsim_web/templates/index.html:117
+#: pidsim/web/templates/index.html:133
 msgid "Simulação do controlador PID"
 msgstr ""
 
-#: pidsim_web/templates/index.html:119
+#: pidsim/web/templates/index.html:135
 msgid "Plotar!"
 msgstr ""
 
-#: pidsim_web/templates/pidsim.js:13
+#: pidsim/web/templates/pidsim.js:13
 msgid "Não há descrição disponível."
 msgstr ""
 
-#: pidsim_web/templates/pidsim.js:20
+#: pidsim/web/templates/pidsim.js:20
 msgid "Este processo não possui parâmetros."
 msgstr ""
 
-#: pidsim_web/templates/pidsim.js:49
+#: pidsim/web/templates/pidsim.js:30 pidsim/web/templates/pidsim.js:60
 msgid "Erro"
 msgstr ""
 
-#: pidsim_web/templates/pidsim.js:49
+#: pidsim/web/templates/pidsim.js:60
 msgid "Seu gráfico teria mais de 5000 pontos."
 msgstr ""
 
-#: pidsim_web/templates/pidsim.js:50
+#: pidsim/web/templates/pidsim.js:61
 msgid "Por favor, diminua o Tempo Total ou aumente o Tempo de Amostragem."
 msgstr ""
 
-#: pidsim_web/templates/pidsim.js:63
+#: pidsim/web/templates/pidsim.js:74
 msgid "Erros"
 msgstr ""
 
