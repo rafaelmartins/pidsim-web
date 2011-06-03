@@ -26,6 +26,7 @@ setup(
     install_requires = [
         'Flask>=0.6.1',
         'Flask-Babel',
+        'Flask-Script',
         'matplotlib',
     ],
     classifiers=[
