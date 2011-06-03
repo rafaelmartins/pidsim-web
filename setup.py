@@ -17,7 +17,8 @@ setup(
     url = pidsim_web.__url__,
     platforms = 'any',
     packages = [
-        'pidsim.web',
+        'pidsim',
+	'pidsim.web',
     ],
     namespace_packages = ['pidsim'],
     scripts = ['pidsim-web'],
