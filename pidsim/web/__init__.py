@@ -19,7 +19,7 @@ __license__ = 'GPL-2'
 __version__ = '0.1pre'
 
 from flask import Flask, render_template, make_response, jsonify, request, \
-    session, url_for
+    session, url_for, abort
 from flaskext.babel import Babel, get_locale, _
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -97,6 +97,13 @@ def model(id):
 
 @app.route('/plot/<int:id>')
 def plot(id):
+    try:
+        return _plot(id)
+    except Exception, err:
+        session['error'] = '%s: %s' % (err.__class__.__name__, str(err))
+        abort(500)
+
+def _plot(id):
     
     # get the discretization method
     _nmethod = request.args['n_method']
@@ -234,9 +241,8 @@ def plot(id):
 
 @app.route('/error/<int:id>')
 def error(id):
-    try:
-        plot(id)
-    except Exception, err:
-        return jsonify(
-            error = '%s: %s' % (err.__class__.__name__, str(err))
-        )
+    error = None
+    if 'error' in session:
+        error = session['error']
+        del session['error']
+    return jsonify(error = error)

@@ -26,7 +26,9 @@ function select_model(my_model) {
 
 function get_error() {
     $.getJSON('{{ request.script_root }}/error/' + model + '?' + $("#options").serialize(), function(data) {
-        alert("{{ _('Erro') }}: \n\n" + data.error);
+        if(data.error != null) {
+            alert("{{ _('Erro') }}: \n\n" + data.error);
+        }
     });
 }
 
@@ -42,6 +44,9 @@ $(document).ready(function() {
             $("#what").val('1');
             $("#what").attr("disabled", false);
         }
+    });
+    $("#i_method").change(function(){
+        $("#what").val('1');
     });
     $("#options").validate({
         onsubmit: true,
