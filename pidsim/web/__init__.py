@@ -157,6 +157,10 @@ def _plot(id):
     time = float(request.args.get('Total_Time', 10))
     what = int(request.args.get('what', 1))
     
+    # validation of parameters
+    if float(time) / float(sample) > 5000:
+        abort(404) 
+    
     # create the figure
     fig = Figure(figsize=(8, 6), dpi=100)
     ax = fig.add_subplot(
