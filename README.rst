@@ -7,7 +7,7 @@ Flask microframework.
 If you need some help with the use, or can help with the development,
 please contact the author via email or visit our project website:
 
-http://pidsim.org/
+https://github.com/rafaelmartins/pidsim-web
 
 All the help is welcome! :)
 

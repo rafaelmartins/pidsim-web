@@ -2,9 +2,9 @@
 """
     pidsim_web
     ~~~~~~~~~~
-    
+
     Main package.
-    
+
     :copyright: (c) 2010 by Rafael Goncalves Martins
     :license: GPL-2, see LICENSE for more details.
 """
@@ -13,7 +13,7 @@ __all__ = ['app']
 __author__ = 'Rafael Goncalves Martins'
 __email__ = 'rafael@rafaelmartins.eng.br'
 __description__ = 'A web-based interface for PIDSIM'
-__url__ = 'http://pidsim.org/'
+__url__ = 'https://github.com/rafaelmartins/pidsim-web'
 __copyright__ = '(c) 2010 %s' % __author__
 __license__ = 'GPL-2'
 __version__ = '0.1pre'
