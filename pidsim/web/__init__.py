@@ -20,7 +20,7 @@ __version__ = '0.1pre'
 
 from flask import Flask, render_template, make_response, jsonify, request, \
     session, url_for, abort
-from flaskext.babel import Babel, get_locale, _
+from flask.ext.babel import Babel, get_locale, _
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
